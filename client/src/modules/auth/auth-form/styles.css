@@ -1,0 +1,7 @@
+.auth-form {
+	width: 460px;
+
+	> div {
+		margin-bottom: 16px;
+	}
+}

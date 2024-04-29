@@ -1,0 +1,15 @@
+.remember-token {
+	max-width: 460px;
+	text-align: center;
+
+	h4 {
+		margin-top: 8px;
+
+		font-size: 1.6rem;
+	}
+
+	button {
+		width: 50%;
+		margin: 16px auto 0 auto;
+	}
+}
