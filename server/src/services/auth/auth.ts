@@ -45,7 +45,7 @@ class AuthService {
             throw new Error("Authentication failed");
         }
 
-        const jwtToken = jwt.sign({ userId: user.id }, JWT_SECRET, {
+        const jwtToken = jwt.sign({ userId: user.dataValues.id }, JWT_SECRET, {
             expiresIn: "1h",
         });
 
@@ -84,7 +84,11 @@ class AuthService {
     }
 
     async getCurrentUser(userId: string) {
-        const user = await User.findByPk(userId);
+        const user = await User.findByPk(userId, {
+            attributes: {
+                exclude: ["password", "token"],
+            },
+        });
 
         return user;
     }

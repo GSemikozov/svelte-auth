@@ -3,10 +3,6 @@ import { Model, DataTypes } from "sequelize";
 import { sequelize } from "db";
 
 export class User extends Model {
-    get id(): string {
-        return this.id;
-    }
-
     get telegramId(): string {
         return this.telegramId;
     }
@@ -26,8 +22,15 @@ export const USER_ATTRIBUTES = {
         autoIncrement: true,
         primaryKey: true,
     },
-    telegramId: DataTypes.STRING,
-    password: DataTypes.STRING,
+    telegramId: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     token: DataTypes.STRING,
 };
 

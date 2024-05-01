@@ -16,7 +16,7 @@ export const verifyToken = async (
     }
 
     try {
-        const userId = authService.checkToken(token);
+        const userId = await authService.checkToken(token);
 
         (request as any).userId = userId;
 

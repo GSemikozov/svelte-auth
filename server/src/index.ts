@@ -99,6 +99,8 @@ app.get(
                 result: { user: currentUser },
             });
         } catch (error) {
+            console.log(error);
+
             response.status(500).json({
                 status: "error",
                 message: "Internal Error",

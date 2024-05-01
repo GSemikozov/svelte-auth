@@ -1,26 +1,8 @@
 <script>
 	import { Button } from 'flowbite-svelte';
+	import { goto } from '$app/navigation';
 
-	import { authService } from '$services/auth';
-	import AuthForm from '$modules/auth/auth-form/index.svelte';
-	import RemeberTokenHint from '$modules/auth/remember-token-hint/index.svelte';
-
-	let data = {
-		telegramId: '',
-		password: ''
-	};
-
-	let token = '';
-
-	const handleSubmit = async () => {
-		const response = await authService.register(data);
-
-		token = response.result.token;
-	};
-
-	const handleResetToken = () => {
-		token = '';
-	};
+	import './welcome.css';
 </script>
 
 <svelte:head>
@@ -29,11 +11,15 @@
 </svelte:head>
 
 <section>
-	{#if token}
-		<RemeberTokenHint {token} onBack={handleResetToken} />
-	{:else}
-		<AuthForm {data} onSubmit={handleSubmit} />
-	{/if}
+	<div class="welcome">
+		<div class="action">
+			<Button on:click={() => goto('/register')}>Go to Register</Button>
+		</div>
+
+		<div class="action">
+			<Button on:click={() => goto('/login')}>Go to Profile</Button>
+		</div>
+	</div>
 </section>
 
 <style>

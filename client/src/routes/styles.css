@@ -105,3 +105,16 @@ button:focus:not(:focus-visible) {
 	width: 1px;
 	white-space: nowrap;
 }
+
+main {
+	justify-content: center;
+}
+
+section {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+}

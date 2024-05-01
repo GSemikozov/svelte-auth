@@ -1,11 +1,22 @@
-<script>
-	import '../app.pcss';
+<script lang="ts">
+	import { auth } from '$stores/auth';
+
 	import Header from './Header.svelte';
+
+	import '../app.pcss';
 	import './styles.css';
+
+	import type { LayoutServerData } from './$types';
+
+	export let data: LayoutServerData;
+
+	const { user } = data;
+
+	$auth = { user };
 </script>
 
 <div class="app">
-	<Header></Header>
+	<Header />
 
 	<main>
 		<slot></slot>

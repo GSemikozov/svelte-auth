@@ -1,0 +1,10 @@
+.welcome {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+
+	.action {
+		margin: 0 8px;
+	}
+}
